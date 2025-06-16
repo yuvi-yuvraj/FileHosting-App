@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-glow-gradient {
+    @apply flex w-fit px-4 py-[1.2em] gap-2 cursor-pointer font-bold rounded-[30px] text-white border-0 shadow-[0_30px_10px_-20px_rgba(0,0,0,0.2)] transition-all duration-300 ease-in-out;
+    text-shadow: 2px 2px 3px rgb(136 0 136 / 0.5);
+    background: linear-gradient(
+      15deg,
+      #880088,
+      #aa2068,
+      #cc3f47,
+      #de6f3d,
+      #f09f33,
+      #de6f3d,
+      #cc3f47,
+      #aa2068,
+      #880088
+    );
+    background-size: 300%;
+    background-position: left center;
+  }
+
+  .btn-glow-gradient:hover {
+    background-size: 320%;
+    background-position: right center;
+  }
+}
