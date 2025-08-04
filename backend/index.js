@@ -17,9 +17,6 @@ connectDB();
 app.use(fileUpload());
 app.use(cors());
 app.use(express.json());
-app.get("/", (req, res) => {
-  res.send("Hello, Express!");
-});
 
 app.post("/api/upload", UploadRoute);
 app.get("/api/view/:id", ViewFile);
