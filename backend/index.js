@@ -14,8 +14,6 @@ const connectDB = require("./database/db");
 
 connectDB();
 
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-
 app.use(fileUpload());
 app.use(cors());
 app.use(express.json());
@@ -27,6 +25,12 @@ app.post("/api/upload", UploadRoute);
 app.get("/api/view/:id", ViewFile);
 app.get("/api/file/:id", DLFile);
 app.post("/api/dashboard", dashboard);
+
+app.use(express.static(path.join(__dirname,"..", "frontend", "dist")));
+
+app.get(/^\/(?!api).*/, (req, res) => {
+  res.sendFile(path.resolve(__dirname,"..", "frontend", "dist", "index.html"));
+})
 
 app.listen(port, () => {
   console.log(`Server is running on ${Config.BACKEND_DOMAIN}:${port}`);
